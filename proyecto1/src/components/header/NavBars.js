@@ -34,6 +34,7 @@ const styles = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+       
     
     },
     
@@ -52,7 +53,7 @@ const styles = {
     },
     
     anchors:{
-        margin: 10,
+        margin: 20,
     },
 
 
