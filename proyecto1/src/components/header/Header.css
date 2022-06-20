@@ -1,0 +1,20 @@
+NavBars {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+nav{
+    display: flex;
+    justify-content:space-between;
+}
+
+img{
+    width: 10%;
+}
+
+a{
+    margin: 10px;
+}
+
