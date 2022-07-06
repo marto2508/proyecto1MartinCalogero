@@ -10,7 +10,7 @@ const NavBars = () => {
             <div style={styles.imagenContainer}>
                 <img src={logo} alt="logo" />
             </div>
-            <h1 style={styles.h1}>Verduleria online</h1>
+            <h1 style={styles.h1}>Vestite como Gerardo</h1>
             <nav style={styles.navStyle}>
                 <a style={styles.anchors} href=""> Quienes somos </a>
                 <a style={styles.anchors} href=""> Galeria </a>
