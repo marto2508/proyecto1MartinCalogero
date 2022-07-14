@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import ItemDetail from "./ItemDetail";
 
     const ItemCount = ({initial, stock, onAdd}) => {
     const [contador, setContador] = useState(initial);
@@ -23,6 +24,7 @@ import React, {useState} from "react";
             <button disabled = {contador <= 0} onClick={decrease}>Restar</button>
             <button disabled ={stock <=0} onClick ={()=> onAdd (contador)}>Agregar al carrito</button> 
             <button onClick={reset}>Limpiar carrito</button>
+             
         </>
     )
 

@@ -6,12 +6,12 @@ import { useParams } from "react-router-dom";
 
 
 const initialProducts = [
-    {id:0 , title:'Remera' , description:'Gris con escote en  v' , price: "800" , image:"https://via.placeholder.com/300" ,category: "RopaDeHombre"} ,
-    {id:1 , title:'Pantalon largo' , description:'Negro algodon' , price: "2200" , image:"https://via.placeholder.com/300" ,category: "RopaDeHombre"},
-    {id:2 , title:'Buzo' , description:'Azul cuello cerrado' , price: "1500" , image:"https://via.placeholder.com/300" ,category: "RopaDeMujer"},
-    {id:3 , title:'Campera' , description:'Nega rompeviento' , price: "5000" , image:"https://via.placeholder.com/300" ,category: "RopaDeHombre"},
-    {id:4 , title:'Remera' , description:'Azul escote en  v' , price: "800" , image:"https://via.placeholder.com/300" ,category: "RopaDeMUjer"},
-    {id:5 , title:'Gorra' , description:'Blanco dryfit' , price: "1600" , image:"https://via.placeholder.com/300" ,category: "Accesorio"},
+    {id:0 , title:'Remera' , description:'Gris con escote en  v' , price: "800" , image:"https://via.placeholder.com/300" ,category: "RopaDeHombre" ,stock:"10"} ,
+    {id:1 , title:'Pantalon largo' , description:'Negro algodon' , price: "2200" , image:"https://via.placeholder.com/300" ,category: "RopaDeHombre",stock:"10"},
+    {id:2 , title:'Buzo' , description:'Azul cuello cerrado' , price: "1500" , image:"https://via.placeholder.com/300" ,category: "RopaDeMujer",stock:"10"},
+    {id:3 , title:'Campera' , description:'Nega rompeviento' , price: "5000" , image:"https://via.placeholder.com/300" ,category: "RopaDeHombre",stock:"10"},
+    {id:4 , title:'Remera' , description:'Azul escote en  v' , price: "800" , image:"https://via.placeholder.com/300" ,category: "RopaDeMujer",stock:"10"},
+    {id:5 , title:'Gorra' , description:'Blanco dryfit' , price: "1600" , image:"https://via.placeholder.com/300" ,category: "Accesorios",stock:"10"},
 
 ]
 
@@ -32,6 +32,8 @@ const ItemListContainer = () => {
 
     const {categoryName}= useParams ();
 
+   
+
 
     const [products, setProducts] = useState([])
 
@@ -44,11 +46,30 @@ const ItemListContainer = () => {
     },[categoryName])
     
 
+   
+        const filtroPorCategoria = products
+            .filter((product) => { 
+
+                return product.category === categoryName;
+            
+            
+            })
+
+
+
+            const productItems = categoryName ? filtroPorCategoria : products;
+
+        
+        console.log (filtroPorCategoria);
+    
+
+
+
     return(
         <div>
             <p style={stylesItemListContainer.texto} className="texto">Bienvenido amigos de Gerardo</p>
             <ItemCount initial={1} stock={10} onAdd={onAdd} /> 
-            <ItemList list={products} />
+            <ItemList list={productItems} />
             
            
         </div>

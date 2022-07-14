@@ -1,11 +1,16 @@
 import { height } from '@mui/system';
-import react from 'react';
+import react from 'react'; 
+import { Link } from 'react-router-dom';
 
-const Item = ({image, title, description, price}) => {
+const Item = ({id, image, title, description, price}) => {
+
+    const link = `/item/${id}`
+
     return(
         <div style={stylesItem.article}>
-            <img src={image} alt=''/>
+            <img style={stylesItem.img} src={image} alt=''/>
             <h2> {title} </h2>
+            <Link to= {link}>Ver detalle</Link>
             <p>{description}</p>
             <span> ${price}</span>
         </div>
@@ -19,15 +24,15 @@ export default Item;
 const stylesItem = {
 
     article: {
-        //width: '150px',
-        //height: '150px',
+        
+        
         margin: '15px',
         
          
     }, 
     
     img:{
-        maxwidth:'250px',
+        width:'25%',
     }
   
 

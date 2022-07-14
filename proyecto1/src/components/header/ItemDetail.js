@@ -1,10 +1,21 @@
-import react from 'react';
-import ItemDetailContainer from './ItemDetailContainer';
-import ItemList from './ItemList';
+import react, {useState} from 'react';
+import ItemCount from './ItemCount';
 
 
 
-const ItemDetail = ({title, description, price, image}) => {
+
+const ItemDetail = ({title, description, price, image, stock}) => {
+
+
+    const [stockActivo, setStockActivo] = useState (stock);
+
+    const onAddHandler = (cantidadElementos) => {
+        const nuevoCantidadElemento = stockActivo - cantidadElementos;
+        setStockActivo(nuevoCantidadElemento);
+       
+    }
+
+
 
     return(
         <>
@@ -12,6 +23,8 @@ const ItemDetail = ({title, description, price, image}) => {
             <h2> {title} </h2>
             <p>{description}</p>
             <span> ${price}</span>
+            {stockActivo > 0 ? <ItemCount stock={ stockActivo } onAdd={ onAddHandler } /> : <span>No hay stock disponible</span> }
+               
         
         </>
     )

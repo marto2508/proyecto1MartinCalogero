@@ -15,5 +15,11 @@ const ItemList =({list}) => {
 export default ItemList;
 
 
+const stylesItemList = {
+
+    
+}
+
+
 
 //Articulo={product.title} Descripcion={product.description} Precio={product.price} Imagen= {product. pictureUrl}

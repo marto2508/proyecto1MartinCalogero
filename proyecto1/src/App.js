@@ -25,8 +25,7 @@ const App = () => {
       
 
       </Routes>
-      <ItemListContainer/>   
-      <ItemDetailContainer/>
+      
     </BrowserRouter>
   
   );
