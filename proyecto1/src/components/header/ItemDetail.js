@@ -1,5 +1,6 @@
-import react, {useState} from 'react';
+import react, {useEffect, useState, useContext} from 'react';
 import ItemCount from './ItemCount';
+import  { CartContext } from './context/CartContext';
 
 
 
@@ -8,23 +9,32 @@ const ItemDetail = ({title, description, price, image, stock}) => {
 
 
     const [stockActivo, setStockActivo] = useState (stock);
+    const {addItem} = useContext (CartContext);
 
+    useEffect(() => {
+        setStockActivo(stock)
+
+    },[stock])
+
+    console.log (stockActivo);
     const onAddHandler = (cantidadElementos) => {
         const nuevoCantidadElemento = stockActivo - cantidadElementos;
         setStockActivo(nuevoCantidadElemento);
+        addItem ();
        
     }
 
-
+    
 
     return(
         <>
+            
             <img src={image} alt=''/>
             <h2> {title} </h2>
             <p>{description}</p>
             <span> ${price}</span>
-            {stockActivo > 0 ? <ItemCount stock={ stockActivo } onAdd={ onAddHandler } /> : <span>No hay stock disponible</span> }
-               
+            {stockActivo > 0 ? <ItemCount stock={ stockActivo } onAdd={ onAddHandler } initial={1}/> : <span>No hay stock disponible</span> }
+             
         
         </>
     )

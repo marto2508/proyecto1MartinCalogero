@@ -1,10 +1,13 @@
 import { height } from '@mui/system';
-import react from 'react'; 
 import { Link } from 'react-router-dom';
+
+
 
 const Item = ({id, image, title, description, price}) => {
 
     const link = `/item/${id}`
+
+   
 
     return(
         <div style={stylesItem.article}>

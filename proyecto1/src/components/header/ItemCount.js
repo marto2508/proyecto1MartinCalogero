@@ -22,7 +22,7 @@ import ItemDetail from "./ItemDetail";
             <h1>{contador}</h1>
             <button disabled ={contador >= stock} onClick={increase}>Agregar</button>
             <button disabled = {contador <= 0} onClick={decrease}>Restar</button>
-            <button disabled ={stock <=0} onClick ={()=> onAdd (contador)}>Agregar al carrito</button> 
+            <button disabled ={stock <=0} onClick ={()=> onAdd (contador)} >Agregar al carrito</button> 
             <button onClick={reset}>Limpiar carrito</button>
              
         </>

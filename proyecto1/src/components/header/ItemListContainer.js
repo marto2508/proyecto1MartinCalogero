@@ -1,5 +1,4 @@
-import { fontFamily, fontSize } from "@mui/system";
-import ItemCount from './ItemCount'
+
 import react, {useState, useEffect} from 'react';
 import ItemList from './ItemList'
 import { useParams } from "react-router-dom";
@@ -60,7 +59,7 @@ const ItemListContainer = () => {
             const productItems = categoryName ? filtroPorCategoria : products;
 
         
-        console.log (filtroPorCategoria);
+        
     
 
 
@@ -68,7 +67,7 @@ const ItemListContainer = () => {
     return(
         <div>
             <p style={stylesItemListContainer.texto} className="texto">Bienvenido amigos de Gerardo</p>
-            <ItemCount initial={1} stock={10} onAdd={onAdd} /> 
+            
             <ItemList list={productItems} />
             
            

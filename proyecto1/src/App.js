@@ -3,6 +3,7 @@ import './App.css';
 import NavBars from './components/header/NavBars'
 import ItemListContainer from './components/header/ItemListContainer'
 import ItemDetailContainer from './components/header/ItemDetailContainer'
+import { CustomProvider } from './components/header/context/CartContext'
 import {
   BrowserRouter,
   Routes,
@@ -15,17 +16,18 @@ import {
 
 const App = () => {
   return (
-    
+   
     <BrowserRouter>
-      <NavBars />
-      <Routes>
-        <Route path="/" element={<ItemListContainer/>} />
-        <Route path="/category/:categoryName" element={<ItemListContainer/>} />
-        <Route path="/item/:itemId" element={<ItemDetailContainer/>} />
-      
-
-      </Routes>
-      
+      <CustomProvider>
+        <>
+          <NavBars />
+          <Routes>
+            <Route path="/" element={<ItemListContainer/>} />
+            <Route path="/category/:categoryName" element={<ItemListContainer/>} />
+            <Route path="/item/:itemId" element={<ItemDetailContainer/>} />
+          </Routes>
+        </>
+      </CustomProvider>
     </BrowserRouter>
   
   );
