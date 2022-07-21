@@ -5,7 +5,7 @@ import  { CartContext } from './context/CartContext';
 
 
 
-const ItemDetail = ({title, description, price, image, stock}) => {
+const ItemDetail = ({id, title, description, price, image, stock}) => {
 
 
     const [stockActivo, setStockActivo] = useState (stock);
@@ -16,11 +16,12 @@ const ItemDetail = ({title, description, price, image, stock}) => {
 
     },[stock])
 
-    console.log (stockActivo);
+    
     const onAddHandler = (cantidadElementos) => {
+        const item = {id, title, price, image}
         const nuevoCantidadElemento = stockActivo - cantidadElementos;
         setStockActivo(nuevoCantidadElemento);
-        addItem ();
+        addItem (item, cantidadElementos);
        
     }
 

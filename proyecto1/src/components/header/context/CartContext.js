@@ -1,4 +1,4 @@
-import React, {useState, createContext} from 'react'
+import React, {useState, createContext, useEffect} from 'react'
 
 
 export const CartContext = createContext ([]);
@@ -12,6 +12,7 @@ export const CustomProvider = ({children})=> {
     const addItem = (item, qty) =>{
      
         let newCart;
+        
         if(itemExists(item.id)) {
           newCart = cartList.map((element) => {
             if(element.id === item.id) {
@@ -38,14 +39,18 @@ export const CustomProvider = ({children})=> {
 
 
     const removeItem = (id) => {
-      const newCart = cartList.map((e, index) => {
-        if(e.id === id){
-          cartList.splice(index,1);
+      const newCart = [...cartList]
+       newCart.map((e, index) => {
+        if(e.id === parseInt(id)){
+          newCart.splice(index,1);
         }
         return e;
       });
       setCartList(newCart);
+
+      console.log('k')
     }
+   
       
 
     
@@ -62,10 +67,37 @@ export const CustomProvider = ({children})=> {
 
     }
 
+    const totalProductos = () =>{
+      let totalProductos = 0  
+    
+      cartList.forEach(item => {
+        totalProductos = totalProductos + (item.price * item.quantity)
+  
+      });
+
+      return totalProductos
+      
+    }
+
+
+    const totalItems = () => {
+      let totalAmmount = 0;
+      cartList.forEach((e) => {
+        totalAmmount += e.quantity
+      })
+      
+      return totalAmmount;
+     
+    }
+    
+     
+    
+
+
 
 
   return (
-    <CartContext.Provider value= {{cartList , addItem , removeItem , resetList }}>
+    <CartContext.Provider value= {{cartList , addItem , removeItem , resetList, totalProductos, totalItems }}>
         {children}
     </CartContext.Provider>
   )

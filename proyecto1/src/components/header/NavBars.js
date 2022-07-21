@@ -1,7 +1,6 @@
 import logo from '../../assets/imagen_logo.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import CartWidget from './CartWidget'
 
 
 const NavBars = () => {
@@ -17,7 +16,7 @@ const NavBars = () => {
                 <Link style={styles.anchors} to="category/Accesorios"> Accesorios </Link>  
             </nav>
             <div style={styles.carrito}>
-                <FontAwesomeIcon  icon={faCartShopping}/>
+               <CartWidget />
             </div>
         </header>
     )
