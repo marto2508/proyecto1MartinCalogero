@@ -6,7 +6,7 @@ import CartContext from './context/CartContext'
 
 const CartWidget = () => {
 
-  const {totalItems} = useContext (CartContext)
+  const context = useContext (CartContext)
 
 
 
@@ -14,7 +14,7 @@ const CartWidget = () => {
     
     <Link className="cartButton" to="/cart">
         <FontAwesomeIcon icon={faCartShopping}/>
-        <span> {totalItems()} </span>
+        <span> {context.totalProductos()} </span>
     </Link>
    
   )

@@ -48,7 +48,7 @@ export const CustomProvider = ({children})=> {
       });
       setCartList(newCart);
 
-      console.log('k')
+      
     }
    
       
@@ -72,7 +72,7 @@ export const CustomProvider = ({children})=> {
     
       cartList.forEach(item => {
         totalProductos = totalProductos + (item.price * item.quantity)
-  
+        console.log(item.quantity)
       });
 
       return totalProductos
@@ -81,6 +81,7 @@ export const CustomProvider = ({children})=> {
 
 
     const totalItems = () => {
+      console.log('a')
       let totalAmmount = 0;
       cartList.forEach((e) => {
         totalAmmount += e.quantity

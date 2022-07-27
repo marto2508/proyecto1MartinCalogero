@@ -19,7 +19,7 @@ import { getDoc, collection, doc } from "firebase/firestore";
     
         useEffect (() => {
             const productCollection= collection(db, "initialproducts");
-            const refDoc = doc(productCollection, itemtId);
+            const refDoc = doc(productCollection, itemId);
             getDoc(refDoc)
             .then(result => {
                 const producto = {
