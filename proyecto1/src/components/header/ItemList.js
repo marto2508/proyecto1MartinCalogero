@@ -5,7 +5,7 @@ import Item from './Item';
 const ItemList =({list}) => {
 
     return (
-        <section className= "item-list">
+        <section style={styles.container} className= "item-list">
             {list.map((product)=>  <Item key={product.id} {...product}/>)}
         </section>
 
@@ -20,6 +20,12 @@ const stylesItemList = {
     
 }
 
+const styles={
+    container:{
+        display:'flex',
+        flexWrap:'wrap',
+        width:'100%',
+    }
 
+}
 
-//Articulo={product.title} Descripcion={product.description} Precio={product.price} Imagen= {product. pictureUrl}

@@ -14,7 +14,7 @@ const CartWidget = () => {
     
     <Link className="cartButton" to="/cart">
         <FontAwesomeIcon icon={faCartShopping}/>
-        <span> {context.totalProductos()} </span>
+        <span> {context.totalItems()} </span>
     </Link>
    
   )

@@ -1,28 +1,62 @@
+import CartContext from './context/CartContext'
+import React, {useContext} from 'react'
 
-import React from 'react'
 
-
-const cartForm = ({cartList, finalizar}) => {
+const CartForm = ({cartList, finalizar, actualizarUsuario}) => {
   
+    const {totalItems} = useContext (CartContext)
 
-
-
+    
     return(
-        <form>
-            <label for="nombre ">Nombre  </label>
-            <input type="text"id= "nombre" />
-            <br></br>
-            <label for="telefono">Telefono</label>
-            <input type="text"id= "telefono"/>
-            <br></br>
-            <label for="Email">Email</label>
-            <input type="text"id= "Email"/>
-            <br></br>
-            <label for="creditCard">Tarjeta de credito</label>
-            <input type="text"id="creditCard"/>
-            <br></br>
-            <button disabled ={ cartList = 0} onClick=  {finalizar}>Comprar</button>    
+        <form style={styles.formulario}>
+            
+            <input style={styles.input} type="text"id= "nombre" name= "nombre" placeholder='Nombre' onChange={actualizarUsuario}/>
+            <input style={styles.input} type="text"id= "telefono" name= "telefono" placeholder='Telefono' onChange={actualizarUsuario}/>
+            <input style={styles.input} type="text"id= "Email" name= "Email" placeholder='Email' onChange={actualizarUsuario}/>
+            <input style={styles.input} type="text"id= "creditCard" name= "creditCard" placeholder='Tarjeta de credito' onChange={actualizarUsuario}/>
+            <button style={styles.boton} disabled ={totalItems() === 0}  onClick=  {finalizar}>Comprar</button>    
+            
         </form>
     )
 }
-export default cartForm
+export default CartForm
+
+
+const styles ={
+
+    formulario:{
+        width:'450px',
+        margin: 'auto',
+        background: 'rgba(0,0,0,0.4)',
+        boxSizing:'border-box',
+        borderRadius:'7px',
+        padding:'10px 20px',
+        fontFamily: 'monospace',
+        
+        
+    },
+
+    input:{
+        width:'100%',
+        boxSizing:'border-box',
+        border: 'none',
+        marginBottom:'15px',
+        padding:'7px',
+
+
+
+    },
+
+    boton:{
+        width:'100%',
+        background:'#31384A',
+        color:'#fff',
+        padding:'7px',
+        fontSize:'15px',
+
+    },
+
+
+
+
+}

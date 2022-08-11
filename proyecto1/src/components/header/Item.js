@@ -30,12 +30,14 @@ const stylesItem = {
         
         
         margin: '15px',
+        fontFamily:'monospace',
+        fontSize: '20px',
         
          
     }, 
     
     img:{
-        width:'25%',
+        width:'80%',
     }
   
 

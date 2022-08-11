@@ -18,16 +18,53 @@ import ItemDetail from "./ItemDetail";
 
 
     return(
-        <>
-            <h1>{contador}</h1>
-            <button disabled ={contador >= stock} onClick={increase}>Agregar</button>
-            <button disabled = {contador <= 0} onClick={decrease}>Restar</button>
-            <button disabled ={stock <=0} onClick ={()=> onAdd (contador)} >Agregar al carrito</button> 
-            <button onClick={reset}>Limpiar carrito</button>
+        <div style={styles.botonesCarrito}>
+            <div style={styles.contador}>
+                <button style={styles.mas} disabled ={contador >= stock} onClick={increase}>+</button>
+                <span style={styles.numero}>{contador}</span>
+                <button style={styles.menos}disabled = {contador <= 0} onClick={decrease}>-</button>
+            </div>
+            <div style={styles.compra}>
+                <button disabled ={stock <=0} onClick ={()=> onAdd (contador)} >Agregar al carrito</button> 
+                <button style={styles.botonLimpiar} onClick={reset}>Limpiar carrito</button>
+            </div>
              
-        </>
+        </div>
     )
 
 } 
 
 export default ItemCount;
+
+const styles={
+
+    botonesCarrito:{
+        
+        margin:'200px',
+        marginBottom:'300px',
+        boxSizing:'border-box',
+    },
+
+    mas:{
+        marginRight:'3px',
+    },
+
+    menos:{
+        marginLeft:'3px',
+    },
+
+    numero:{
+        fontFamily:'monospace'
+    },
+
+    compra:{
+        width:'150px',
+        paddingTop:'5px',
+    
+    },
+
+    botonLimpiar:{
+        marginTop:'5px',
+    }
+
+}

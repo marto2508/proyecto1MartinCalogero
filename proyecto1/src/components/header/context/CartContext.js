@@ -11,10 +11,10 @@ export const CustomProvider = ({children})=> {
 
     const addItem = (item, qty) =>{
      
-        let newCart;
+        let newCart= [...cartList];
         
         if(itemExists(item.id)) {
-          newCart = cartList.map((element) => {
+          newCart.map((element) => {
             if(element.id === item.id) {
               element.quantity += qty;
             }
@@ -27,9 +27,11 @@ export const CustomProvider = ({children})=> {
           }
 
 
-          cartList.push (newItem)
+          newCart.push (newItem)
 
         }  
+
+        setCartList(newCart);
 
     }
 
@@ -39,49 +41,41 @@ export const CustomProvider = ({children})=> {
 
 
     const removeItem = (id) => {
-      const newCart = [...cartList]
-       newCart.map((e, index) => {
-        if(e.id === parseInt(id)){
+      const newCart = [...cartList];
+        
+       newCart.forEach((e, index) => {
+        if(e.id === (id)){
           newCart.splice(index,1);
+          
         }
-        return e;
+        
       });
       setCartList(newCart);
 
       
     }
    
-      
-
-    
-
-
-    const resetList = () => {
+        const resetList = () => {
         setCartList([])
       }
 
-    
-
-    const isInList = (id) => {
-      return cartList.find((element) => element.id === id)
-
-    }
+  
 
     const totalProductos = () =>{
       let totalProductos = 0  
-    
+      
       cartList.forEach(item => {
         totalProductos = totalProductos + (item.price * item.quantity)
-        console.log(item.quantity)
+        
       });
 
-      return totalProductos
+      return totalProductos;
       
     }
 
 
     const totalItems = () => {
-      console.log('a')
+     
       let totalAmmount = 0;
       cartList.forEach((e) => {
         totalAmmount += e.quantity
@@ -90,6 +84,8 @@ export const CustomProvider = ({children})=> {
       return totalAmmount;
      
     }
+
+    
     
      
     
